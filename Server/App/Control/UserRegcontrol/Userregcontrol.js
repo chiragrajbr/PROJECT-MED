@@ -13,13 +13,14 @@ usercontroller.register=(req,res)=>{
                             .then((encrypted)=>{
                                 reg.password=encrypted
                                 reg.save()
-                                .then((user)=>{
-                                    res.json(user)
-                                })
-                            })
-                            .catch((err)=>{
-                                res.json(err.message)
-                            })
+                                        .then((user)=>{
+                                            res.json(user)
+                                        })
+                                        .catch((error)=>{
+                                            res.json({"error":error})
+                                            
+                                        })
+                                    })     
                 })
     .catch((err)=>{
         console.log(err.message)
