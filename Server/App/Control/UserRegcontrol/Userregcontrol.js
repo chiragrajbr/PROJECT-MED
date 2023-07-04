@@ -5,7 +5,6 @@ const usercontroller={}
 //to register
 usercontroller.register=(req,res)=>{
     const body=req.body
-    
    const reg=new usermodel(body)
     bcrypt.genSalt()
             .then((salt)=>{
@@ -40,9 +39,7 @@ usercontroller.allusers=(req,res)=>{
 
 //to login
 usercontroller.login=(req,res)=>{
-   
     const body=req.body
-  
     usermodel.findOne({email:body.email})
                    .then((user)=>{
                        bcrypt.compare(body.password,user.password)
@@ -55,7 +52,7 @@ usercontroller.login=(req,res)=>{
                                    email:user.email
                                }
                                //.sign requires 3 parameters 1-token 
-                           const generatedtoken = jwt.sign(token,"mid",{expiresIn:"5d"})
+                           const generatedtoken = jwt.sign(token,"mid")
                            res.json({
                                token:generatedtoken
                            })

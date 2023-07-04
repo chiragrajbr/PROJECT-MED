@@ -59,9 +59,6 @@ const Register = () => {
           <div className='mt-2'><p>existing user <Link to={"/login"}>login</Link></p></div>
 
         </form>
-        {
-          name && email && password.length!==0 ?<><p></p></>:<>Please fill all fields</>
-        }
         
         </div>
       </div>

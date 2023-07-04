@@ -2,6 +2,7 @@ import React from 'react'
 import {Link,useNavigate} from "react-router-dom"
 import axios from "axios"
 
+
 const Login = () => {
   const navigate=useNavigate()
     const [email,setEmail]=React.useState("")
@@ -17,11 +18,11 @@ const Login = () => {
             })
               .then((res)=>{
                 const token=res.data.token
-                localStorage.setItem("token",token)
                 if(!token){
                   alert(res.data)
                   
                 }else{
+                  localStorage.setItem("token",token)
                   alert("login succesfull")
                   navigate("/")
                 }

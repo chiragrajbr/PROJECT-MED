@@ -3,7 +3,7 @@ const isEmail=require("validator/lib/isEmail")
 const user=new mongoose.Schema({
    name:{
     type:String,
-    required:[true,"name is needed"]
+    required:[true,"name is required"]
    },
    email:{
     type:String,
